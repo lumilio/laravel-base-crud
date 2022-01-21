@@ -16,7 +16,6 @@ class ComicSeeder extends Seeder
         foreach ($comics_arrey as $item){
             $_item = new Comic();
             $_item -> title = $item['title'];
-            $_item -> description = $item['description'];
             $_item -> thumb = $item['thumb'];
             $_item -> price = $item['price'];
             $_item -> series = $item['series'];
