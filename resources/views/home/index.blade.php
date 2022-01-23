@@ -3,5 +3,10 @@
 
 
 @section('content')
-<p class='admin-list'>benvenuto sul pannello admin</p> 
+
+<div class="container-fluid d-flex justify-content-center"> 
+    <div class="container">
+        <p class='admin-list'>benvenuto sul pannello admin</p> 
+    </div>
+</div>
 @endsection
