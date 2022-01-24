@@ -26,14 +26,14 @@ Route::post('comics', 'Admin\ComicController@store')->name('admin.comic.store');
 
 
 
-Route::get('comics/{post}', 'Admin\ComicController@show')->name('admin.comic.show');
+Route::get('comics/{comic}', 'Admin\ComicController@show')->name('admin.comic.show');
 
 
 
-Route::get('comics/{post}/edit', 'Admin\ComicController@edit')->name('admin.comic.edit');
-Route::put('comics/{post}', 'Admin\ComicController@update')->name('admin.comic.update');
+Route::get('comics/{comic}/edit', 'Admin\ComicController@edit')->name('admin.comic.edit');
+Route::put('comics/{comic}', 'Admin\ComicController@update')->name('admin.comic.update');
 
-Route::delete('comics/{post}', 'Admin\ComicController@destroy')->name('admin.comic.destroy');
+Route::delete('comics/{comic}', 'Admin\ComicController@destroy')->name('admin.comic.destroy');
 
 
 
