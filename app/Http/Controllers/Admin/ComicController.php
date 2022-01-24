@@ -45,20 +45,35 @@ class ComicController extends Controller
     {
 
 
-        $request->validate([
-            'series' => 'required | unique:comics',
+        $validated_data = $request->validate([
+            'series' => 'required|unique:comics',
             'price' => 'required',
             'type' => 'required',
         ]);
-        // ddd($request->all()); 
-        // ddd($request->nome);
-        $comic = new Comic();
-        $comic->series = $request->nome;
-        $comic->price = $request->prezzo;
-        $comic->type = $request->categoria;
-        $comic->save();
+
+        Comic::create($validated_data);
 
         return redirect()->route('admin.comic.index');
+
+        /*      
+        __VALIDAZIONE__
+        ddd($validated_data);
+        ddd($request->all()); 
+        ddd($request->nome);
+        $comic = new Comic();
+        $comic->series = $validated_data['series'];
+        $comic->price = $validated_data['price'];
+        $comic->type = $validated_data['type'];
+        $comic->save(); */
+
+        /*      
+        __SENZA VALIDAZIONE__
+        $comic = new Comic();
+        $comic->series = $request->series;
+        $comic->price = $request->price;
+        $comic->type = $request->type;
+        $comic->save(); */
+
     }
 
 
