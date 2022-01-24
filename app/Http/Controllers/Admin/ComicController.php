@@ -120,7 +120,7 @@ class ComicController extends Controller
         ]);
         // ddd($comic, $request->all());
         $comic->update($validated_data);
-        return redirect()->route('admin.comic.index');
+        return redirect()->route('admin.comic.index')->with('message', "hai modificato l'elemento con id {{$comic->id}}");
     }
 
 
@@ -134,6 +134,6 @@ class ComicController extends Controller
     public function destroy(Comic $comic)
     {
         $comic->delete();
-        return redirect()->route('admin.comic.index');
+        return redirect()->route('admin.comic.index')->with('message', "hai rimosso l'elemento con id {{$comic->id}}");
     }
 }

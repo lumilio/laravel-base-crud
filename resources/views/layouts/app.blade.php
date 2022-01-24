@@ -6,7 +6,7 @@
         <title>DC COMICS | @yield('page-title')</title>
         <link href="{{asset('css/app.css')}}" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-        <!-- Custom CSS --> @yield('custom-css')
+        <script src="{{asset('js/app.js')}}" defer></script>
     </head>
 
 
