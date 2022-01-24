@@ -79,7 +79,7 @@ class ComicController extends Controller
 
 
     /**
-     * Display the specified resource.
+     * Display the specified resource.     OK
      *
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
@@ -92,20 +92,20 @@ class ComicController extends Controller
 
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resource.     OK
      *
      * @param  \App\Models\Comic  $comic
      * @return \Illuminate\Http\Response
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
 
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage.     OK
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Comic  $comic
@@ -113,7 +113,14 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $validated_data = $request->validate([
+            'series' => 'required|unique:comics',
+            'price' => 'required',
+            'type' => 'required',
+        ]);
+        // ddd($comic, $request->all());
+        $comic->update($validated_data);
+        return redirect()->route('admin.comic.index');
     }
 
 
@@ -126,6 +133,7 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route('admin.comic.index');
     }
 }
