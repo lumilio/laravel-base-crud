@@ -22,19 +22,13 @@
         <a class= "mx-2" href="{{route('admin.comic.show', $comic->id)}}">View</a> 
         <a class= "mx-2" href="{{route('admin.comic.edit', $comic->id)}}">Edit</a>
 
-<!--         <form class="mx-2" method='post' action="{{route('admin.comic.destroy', $comic->id)}}">
-            @csrf 
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-        </form>  -->
-
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#delete{{$comic->id}}">
           Delete
         </button>
         
         <!-- Modal -->
-        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modal-{{$comic->id}}" aria-hidden="true">
+        <div class="modal fade" id="delete{{$comic->id}}" tabindex="-1" role="dialog" aria-labelledby="modal-{{$comic->id}}" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -45,7 +39,8 @@
                         Attenzione! l'operazione non sarà reversibile.
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retry</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
                         <form class="mx-2" method='post' action="{{route('admin.comic.destroy', $comic->id)}}">
                             @csrf 
                             @method('DELETE')
@@ -56,7 +51,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
 
     @empty
@@ -64,9 +58,5 @@
     @endforelse 
     {{$comic_arrey->links()}}
 </div>
-
-
-
-
 
 @endsection
