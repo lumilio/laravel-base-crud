@@ -18,7 +18,7 @@ class ComicController extends Controller
     public function index()
     {
         $comic_arrey = Comic::paginate(10); /* $comic_arrey = Comic::all();  */
-        return view('comics.index',compact('comic_arrey'));
+        return view('Admin.comics.index',compact('comic_arrey'));
     }
 
 
@@ -30,7 +30,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        return view('comics.create');
+        return view('Admin.comics.create');
     }
 
 
@@ -86,7 +86,7 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        return view('comics.show', compact('comic'));
+        return view('Admin.comics.show', compact('comic'));
     }
 
 
@@ -99,7 +99,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        return view('comics.edit', compact('comic'));
+        return view('Admin.comics.edit', compact('comic'));
     }
 
 

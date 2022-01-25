@@ -14,16 +14,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home.index');
+    return view('Initial.start');
+})->name('initial.start');
+
+Route::get('/admin', function () {
+    return view('Admin.home.index');
 })->name('admin.home.index');
 
-Route::get('comics', 'Admin\ComicController@index')->name('admin.comic.index');
-Route::get('comics/create', 'Admin\ComicController@create')->name('admin.comic.create');
-Route::post('comics', 'Admin\ComicController@store')->name('admin.comic.store');
-Route::get('comics/{comic}', 'Admin\ComicController@show')->name('admin.comic.show');
-Route::get('comics/{comic}/edit', 'Admin\ComicController@edit')->name('admin.comic.edit');
-Route::put('comics/{comic}', 'Admin\ComicController@update')->name('admin.comic.update');
-Route::delete('comics/{comic}', 'Admin\ComicController@destroy')->name('admin.comic.destroy');
+Route::get('admin/comics', 'Admin\ComicController@index')->name('admin.comic.index');
+Route::get('admin/comics/create', 'Admin\ComicController@create')->name('admin.comic.create');
+Route::post('admin/comics', 'Admin\ComicController@store')->name('admin.comic.store');
+Route::get('admin/comics/{comic}', 'Admin\ComicController@show')->name('admin.comic.show');
+Route::get('admin/comics/{comic}/edit', 'Admin\ComicController@edit')->name('admin.comic.edit');
+Route::put('admin/comics/{comic}', 'Admin\ComicController@update')->name('admin.comic.update');
+Route::delete('admin/comics/{comic}', 'Admin\ComicController@destroy')->name('admin.comic.destroy');
 
 
 
